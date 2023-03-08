@@ -195,16 +195,35 @@
             </div>
             <div class="modal-form-info">
                 <i class="ti-shopping-cart"></i>
-                <label for="How-many">Giá vé, 200,000VND mỗi người:</label><br>
-                <input type="text" required placeholder="How many?" class="input-info" id="How-many">
+                <label for="How-many">Chọn Tour du lịch bạn muốn thăm quan:</label><br>
+                <select class="input-info" id="mySelect" >
+                    <option >Suối Moọc  </option>
+                    <option >Động Thiên Đường</option>
+                    <option >Bãi Đá Nhãy</option>
+                    </select>
+                   
+                
+                <i class="ti-shopping-cart"></i>
+                <label for="How-many">Giá vé 200,000VND/người, nhập số:</label><br>
+                <input type="number" name="quantity"  min="1" max="100" required placeholder="Chon số lượng ?" class="input-info" id="How-many">
                 <i class="ti-user"></i>
                 <label for="Enter-email">Gửi tới:</label><br>
                 <input type="email" required placeholder="Enter email" class="input-info" id="Enter-email">
-                <button class="modal-buy-btn" type="submit">PAY<i class="ti-check"></i></button>
+                <button class="modal-buy-btn" type="button" onclick="alert('Tổng tiền mà bạn cần thanh toán cho tour với '  +  myfunc() + ' vé là ' + totalPrice + ' VND')" value="Xác Nhận"><i class="ti-check"></i></button>
                 <p class="model-end">Need <a href="#">help?</a></p>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function myfunc() {
+
+            var input = document.getElementById('How-many');
+            var x = document.getElementById('mySelect');
+            var ticketPrice = 200000;
+            var totalPrice = input.value * ticketPrice;
+             confirm('Tổng tiền mà bạn cần thanh toán cho tour ' + x.value +   ' với ' +input.value + ' vé là ' + totalPrice + ' VND');
+        } 
+    </script>
 
     <script>
         // <--mobile menu script-->
@@ -214,6 +233,14 @@
         var subNav = document.getElementsByClassName('js-sub-nav');
         var navBtns = document.querySelectorAll('.js-nav-btn');
         var screen = document.getElementById('main');
+
+      // var numberpeople = document.querrySelector('input-info').innerHtml = 
+       /* 
+         var numPeople = prompt('Nhập số lượng người mua vé:');
+          var ticketPrice = 200000;
+         var totalPrice = numPeople * ticketPrice;
+alert('Tổng tiền mà bạn cần thanh toán ' + tourType + ' cho tour với' + numPeople + ' vé' + totalPrice 'VND');
+*/
         // đóng mở menu
         menuBtn.onclick = function () {
             var menuClose = header.clientHeight === heightHeader;
